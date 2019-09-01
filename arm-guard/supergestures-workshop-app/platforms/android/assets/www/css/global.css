@@ -1,0 +1,267 @@
+#title{
+  font-size: 10vw;
+  font-weight: bold;
+}
+
+#instruction{
+  margin-top: 25vh;
+}
+
+#front_image{
+  width:105vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+#frontCoverTitle, #frontCoverDescription{
+	font-size: 40px;
+}
+
+#frontCoverDescription{
+	font-size: 15px;
+}
+
+#disconnectButton{
+  font-size: 20px;
+  padding-left:5vw;
+  padding-right: 5vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  color:white;
+  background-color: #ff3b3b;
+  box-shadow: none;
+  border:none;
+}
+
+#disconnectButton:hover{
+  background-color: #800000; 
+}
+
+#lockScreen{
+  font-size: 20px;
+  padding-left:5vw;
+  padding-right: 5vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  color:white;
+  background-color: #EC7A37;
+  box-shadow: none;
+  border:none; 
+}
+
+#lockScreen:hover{
+  background-color: #b05b2a; 
+}
+
+.confirm:hover, .restart:hover{
+  background-color: black;
+  color:white;
+}
+
+#begin, #scanForDevice, #placeholderBegin{
+  padding:3vw;
+  font-size: 25px;
+  color:white;
+  background-color: green;
+  box-shadow: none;
+  border:none;
+}
+
+#begin:hover, #scanForDevice:hover,#placeholderBegin:hover{
+  background-color: darkgreen;
+  color:black;
+}
+
+#anotherToken{
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  font-size: 25px;
+  color:white;
+  background-color: #4f4f4f;
+  box-shadow: none;
+  border:none;
+}
+
+.getData:hover, #anotherToken:hover{
+  background-color: black; 
+}
+
+#scanResultView{
+  font-size: 15px;
+}
+
+#placeholderBegin{
+	opacity:0.2;
+}
+
+#bottom{
+    vertical-align: bottom
+}
+
+#storedData, #footnote, #note {
+	font-size: 12px;
+	opacity:0.5;
+}
+
+#user_device_connection{
+	font-size: 10px;
+	opacity:0.5;
+	color:red;	
+}
+
+#websocket, #A3Bar,#A4Bar, #A5Bar, #GEOreading{
+  font-size: 20px;
+  margin:5vw;
+}
+
+#connectedData{
+	font-size: 5px;
+	opacity:0.5;	
+}
+
+#appSensorInfo{
+	opacity:0.5;
+}
+
+#socketStatus, #valueA5, #valueA4,#valueA3, #geolocationValue{
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+
+#description{
+	font-size: 14px;
+	opacity:0.5;
+  margin-bottom: 10vh;
+}
+
+.key{
+	width: 20vw;
+  height: 10vh;
+	font-size: 40px;
+}
+
+#A4title, #A5title, #Geotitle{
+	margin-top: 4px;
+	color: black;
+}
+
+
+#app_restarted_status{
+	font-size: 15px;
+	color:red;
+	margin:10px;
+	bottom: 45%;
+  left: 0;
+  position: fixed;
+  right: 0;
+}
+
+#wrist_circle, #palm_circle, #arm_circle {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: #F05A28;
+  border-radius: 13px;
+  opacity: 0.4;
+}
+
+
+#arm_circle{
+  left: 25%;
+  top: 55%;
+}
+
+#wrist_circle{
+  left: 30%;
+  top: 75%;
+}
+
+#palm_circle{
+  left: 30%;
+  top: 90%;
+}
+
+#top_arm_1, #top_arm_2, #top_arm_3, 
+#middle_arm_1, #middle_arm_2, #middle_arm_3,
+#hand_1, #hand_2, #hand_3{
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0.4;
+}
+
+#top_arm_1{
+  border-top: 10px solid transparent;
+  border-right: 20px solid #F05A28;
+  border-bottom: 10px solid transparent;
+  left: 58%;
+  top: 45%;
+}
+
+#top_arm_2{
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #F05A28;
+  left: 65%;
+  top: 40%;
+}
+
+#top_arm_3{
+  border-top: 10px solid transparent;
+  border-left: 20px solid #F05A28;
+  border-bottom: 10px solid transparent;
+  left: 72%;
+  top: 45%;
+}
+
+#middle_arm_1{
+  border-top: 10px solid transparent;
+  border-right: 20px solid #F05A28;
+  border-bottom: 10px solid transparent;
+  left: 58%;
+  top: 65%;
+}
+
+#middle_arm_2{
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #F05A28;
+  left: 65%;
+  top: 60%;
+}
+
+#middle_arm_3{
+  border-top: 10px solid transparent;
+  border-left: 20px solid #F05A28;
+  border-bottom: 10px solid transparent;
+  left: 72%;
+  top: 65%;
+}
+
+#hand_1{
+  border-top: 10px solid transparent;
+  border-right: 20px solid #F05A28;
+  border-bottom: 10px solid transparent;
+  left: 58%;
+  top: 85%;
+}
+
+#hand_2{
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #F05A28;
+  left: 65%;
+  top: 80%;
+}
+
+#hand_3{
+  border-top: 10px solid transparent;
+  border-left: 20px solid #F05A28;
+  border-bottom: 10px solid transparent;
+  left: 72%;
+  top: 85%;  
+}
+
