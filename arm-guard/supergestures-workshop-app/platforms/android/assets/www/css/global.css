@@ -53,6 +53,19 @@
   background-color: #b05b2a; 
 }
 
+#uploadOnline{
+  font-size: 20px;
+  margin-top: 1vh;
+  padding-left:5vw;
+  padding-right: 5vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  color:white;
+  background-color: grey;
+  box-shadow: none;
+  border:none;
+}
+
 .confirm:hover, .restart:hover{
   background-color: black;
   color:white;

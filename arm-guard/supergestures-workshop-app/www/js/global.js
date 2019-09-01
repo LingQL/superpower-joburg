@@ -102,6 +102,11 @@ var Thing_ID;
 var Thing_data_set;
 var thingful_reading;
 
+//upload data to google form
+var upload_to_online = false;
+var update_spreadsheet = false;
+var tick_tock_spreadsheet;
+
 
 //track user's connected device information
 function showStoredConnectedDevice() {
