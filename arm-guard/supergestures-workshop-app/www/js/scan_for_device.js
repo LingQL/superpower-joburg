@@ -2,6 +2,7 @@ document.addEventListener('deviceready', function() {
 	app.initialize();
 	//test streaming of audio files
 	// audioFileStream();
+	setTimeout(load_spreadsheet_info, 2000); // load device number spreadsheet
 }, false);
 
 document.addEventListener('backbutton', function(e) { // only work in android platform

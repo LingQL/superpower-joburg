@@ -106,7 +106,26 @@ var thingful_reading;
 var upload_to_online = false;
 var update_spreadsheet = false;
 var tick_tock_spreadsheet;
+var current_uri;
 
+var current_latitude;
+var current_longitude;
+var current_longitude;
+
+var current_tilt_switch_1_top_arm;
+var current_tilt_switch_2_top_arm;
+var current_tilt_switch_3_top_arm;
+var current_pressure_sensor_top_arm;
+
+var current_tilt_switch_1_middle_arm;
+var current_tilt_switch_2_middle_arm;
+var current_tilt_switch_3_middle_arm;
+var current_pressure_sensor_middle_arm;
+
+var current_tilt_switch_1_hand;
+var current_tilt_switch_2_hand;
+var current_tilt_switch_3_hand;
+var current_pressure_sensor_hand;
 
 //track user's connected device information
 function showStoredConnectedDevice() {

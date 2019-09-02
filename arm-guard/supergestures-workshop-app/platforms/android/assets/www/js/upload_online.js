@@ -1,18 +1,5 @@
 var device_number = "device_2";
 
-var spreadsheet_device_4_arm_guard = "https://docs.google.com/forms/d/1nHr7QJruq53Ko17dg4eOdmT_uV_TMBM6H_cSTBEjSTk/formResponse";
-var spreadsheet_device_11_arm_guard = "https://docs.google.com/forms/d/1Kmdmp-k2DuPt3KRUXSrCbwu9ZWtKukOsPsHkqyQmQmk/formResponse";
-var spreadsheet_device_9_arm_guard = "https://docs.google.com/forms/d/1wKBwCHURU1yVJtg6b7o4THEmLeWNhmr_-WJcUMhQWRY/formResponse";
-var spreadsheet_device_1_arm_guard = "https://docs.google.com/forms/d/1QkAjpOMARABXIZZCK2NfYiDDi2uCGh_-BDWVRdSrfjc/formResponse";
-var spreadsheet_device_6_arm_guard = "https://docs.google.com/forms/d/17HSskqG8UcwNyg1zfXCIUDDPAQhkIwOeUiH-GltsLOc/formResponse";
-var spreadsheet_device_8_arm_guard = "https://docs.google.com/forms/d/169W2v6CUIlVTHTd7V7zyF7EaoAjDbG6ewC3Oo9YUotE/formResponse";
-var spreadsheet_device_7_arm_guard = "https://docs.google.com/forms/d/1xbhTvsEKHgKavBeGXKo-SgVfyzvDWzx-lUqFZVHzL2U/formResponse";
-var spreadsheet_device_3_arm_guard = "https://docs.google.com/forms/d/1BtzIa8Ije_DRo52H_pbd7PVMtSWnT_wwD6ajS676vxQ/formResponse";
-var spreadsheet_device_10_arm_guard = "https://docs.google.com/forms/d/107M8ifyoPb9yBtOSo9HSLZR-lwS0hWXYNzLywQEPYQA/formResponse";
-var spreadsheet_device_5_arm_guard = "https://docs.google.com/forms/d/11Cskbbdgvhij6juFrHbhzamCywsDPmld7yheP6Rg0Gg/formResponse";
-var spreadsheet_device_2_arm_guard = "https://docs.google.com/forms/d/13pGfNypQZXgAFalM48zxEp_PJPdYK0mIL3KI4icLoo8/formResponse";
-
-
 app.toggleUploadOnline = function() { //START uploading
   if(upload_to_online==false){
     upload_to_online = true;
@@ -41,27 +28,42 @@ app.toggleUploadOnline = function() { //START uploading
 }
 
 function update_spreadsheet_function() {
-  $.post(eval("spreadsheet_"+device_number+"_arm_guard"),{
-    entry_1938082153: myLocationLat,
-    entry_2086013150: myLocationLong,
-    entry_969471398: top_arm_1, //tilt switch 1 - top arm 
-    entry_41192917: top_arm_2, //tilt switch 2 - top arm 
-    entry_1768203737: top_arm_3, //tilt switch 3 - top arm 
-    entry_14818896: arm_circle, //pressure sensor 1 - top arm
-    entry_1909279086: middle_arm_1, //tilt switch 1 - middle arm 
-    entry_309880309: middle_arm_2, //tilt switch 2 - middle arm 
-    entry_1947219071: middle_arm_3, //tilt switch 3 - middle arm 
-    entry_1605036037: wrist_circle, //pressure sensor 2 - middle arm
-    entry_1344351869: hand_1, //tilt switch 1 - hand  
-    entry_869100328: hand_2, //tilt switch 2 - hand 
-    entry_1251979760: hand_3, //tilt switch 3 - hand
-    entry_1104700201: palm_circle, //pressure sensor 3 - hand
-    submit: "Submit",
+  var txt = '{"'+current_latitude+'":"1.64932841", "'+current_longitude+'":2.08321841, "'+current_tilt_switch_1_top_arm+'":3.08321841, "'+current_tilt_switch_2_top_arm+'":4.08321841, "'+current_tilt_switch_3_top_arm+'":5.08321841, "'+current_pressure_sensor_top_arm+'":6.08321841, "'+current_tilt_switch_1_middle_arm+'":7.08321841, "'+current_tilt_switch_2_middle_arm+'":8.08321841, "'+current_tilt_switch_3_middle_arm+'":9.08321841, "'+current_pressure_sensor_middle_arm+'":10.08321841, "'+current_tilt_switch_1_hand+'":11.08321841, "'+current_tilt_switch_2_hand+'":12.08321841, "'+current_tilt_switch_3_hand+'":13.08321841, "'+current_pressure_sensor_hand+'":14.08321841}'
+  var objData = JSON.parse(txt);
 
-  },
-
+  $.post((current_uri),objData,
+ 
   function(data, status) {
-    // console.log(status);
+     console.log(status);
     //tick_tock_spreadsheet();
   });
+
+}
+
+//test json file format
+function load_spreadsheet_info(){
+    $.getJSON( "json/spreadsheet_info.json", function(obj) { 
+      for(var i=0; i<obj.length;i++){
+        if(obj[i].id == device_number){
+          current_uri = obj[i].uri;
+          current_latitude = obj[i].latitude;
+          current_longitude = obj[i].longitude;
+          current_tilt_switch_1_top_arm = obj[i].tilt_switch_1_top_arm;
+          current_tilt_switch_2_top_arm = obj[i].tilt_switch_2_top_arm;
+          current_tilt_switch_3_top_arm = obj[i].tilt_switch_3_top_arm;
+          current_pressure_sensor_top_arm = obj[i].pressure_sensor_top_arm;
+
+          current_tilt_switch_1_middle_arm = obj[i].tilt_switch_1_middle_arm;
+          current_tilt_switch_2_middle_arm = obj[i].tilt_switch_2_middle_arm;
+          current_tilt_switch_3_middle_arm = obj[i].tilt_switch_3_middle_arm;
+          current_pressure_sensor_middle_arm = obj[i].pressure_sensor_middle_arm;
+
+          current_tilt_switch_1_hand = obj[i].tilt_switch_1_hand;
+          current_tilt_switch_2_hand = obj[i].tilt_switch_2_hand;
+          current_tilt_switch_3_hand = obj[i].tilt_switch_3_hand;
+          current_pressure_sensor_hand = obj[i].pressure_sensor_hand;
+        }
+      }
+    });  
+    setTimeout(update_spreadsheet_function, 2000); //check data is logged to spreadsheet
 }
