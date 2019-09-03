@@ -42,7 +42,7 @@ int allPressureSwitches = 0;
 void setup() {
 
   // Set your BLE Shield name here, max. length 10
-  ble_set_name("Device 2");
+  ble_set_name("Glove 3");
 
   // Init. and start BLE library.
   ble_begin();
