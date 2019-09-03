@@ -2,7 +2,8 @@ document.addEventListener('deviceready', function() {
 	app.initialize();
 	//test streaming of audio files
 	// audioFileStream();
-	setTimeout(load_spreadsheet_info, 2000); // load device number spreadsheet
+	load_spreadsheet_info();
+	//setTimeout(load_spreadsheet_info, 2000); // load device number spreadsheet
 }, false);
 
 document.addEventListener('backbutton', function(e) { // only work in android platform
@@ -389,6 +390,15 @@ app.disconnect = function(errorMessage) {
 		if (digital_enabled_D10 == true) {
 			app.toggleDigitalD10();
 		}
+
+		if(update_spreadsheet == true){
+      update_spreadsheet =false;
+      clearInterval(tick_tock_spreadsheet);
+
+      upload_to_online = false;
+	    $('#uploadOnline').css("background-color", "grey");
+	    $('#uploadOnline').html("Upload Online");
+    }
 
 		// only disable the background mode if the app is in foreground
 		if (cordova.plugins.backgroundMode.isActive() == false) {

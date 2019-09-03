@@ -1,4 +1,4 @@
-var device_number = "device_2";
+var device_number = "device_6";
 
 app.toggleUploadOnline = function() { //START uploading
   if(upload_to_online==false){
@@ -28,13 +28,19 @@ app.toggleUploadOnline = function() { //START uploading
 }
 
 function update_spreadsheet_function() {
-  var txt = '{"'+current_latitude+'":"1.64932841", "'+current_longitude+'":2.08321841, "'+current_tilt_switch_1_top_arm+'":3.08321841, "'+current_tilt_switch_2_top_arm+'":4.08321841, "'+current_tilt_switch_3_top_arm+'":5.08321841, "'+current_pressure_sensor_top_arm+'":6.08321841, "'+current_tilt_switch_1_middle_arm+'":7.08321841, "'+current_tilt_switch_2_middle_arm+'":8.08321841, "'+current_tilt_switch_3_middle_arm+'":9.08321841, "'+current_pressure_sensor_middle_arm+'":10.08321841, "'+current_tilt_switch_1_hand+'":11.08321841, "'+current_tilt_switch_2_hand+'":12.08321841, "'+current_tilt_switch_3_hand+'":13.08321841, "'+current_pressure_sensor_hand+'":14.08321841}'
+  if(myLocationLat == undefined){
+    myLocationLat = 0;
+  }
+  if(myLocationLong == undefined){
+    myLocationLong = 0;
+  }
+  var txt = '{"'+current_latitude+'":"'+myLocationLat+'", "'+current_longitude+'":'+myLocationLong+', "'+current_tilt_switch_1_top_arm+'":'+top_arm_1+', "'+current_tilt_switch_2_top_arm+'":'+top_arm_2+', "'+current_tilt_switch_3_top_arm+'":'+top_arm_3+', "'+current_pressure_sensor_top_arm+'":'+arm_circle+', "'+current_tilt_switch_1_middle_arm+'":'+middle_arm_1+', "'+current_tilt_switch_2_middle_arm+'":'+middle_arm_2+', "'+current_tilt_switch_3_middle_arm+'":'+middle_arm_3+', "'+current_pressure_sensor_middle_arm+'":'+wrist_circle+', "'+current_tilt_switch_1_hand+'":'+hand_1+', "'+current_tilt_switch_2_hand+'":'+hand_2+', "'+current_tilt_switch_3_hand+'":'+hand_3+', "'+current_pressure_sensor_hand+'":'+palm_circle+'}'
   var objData = JSON.parse(txt);
 
   $.post((current_uri),objData,
  
   function(data, status) {
-     console.log(status);
+     //console.log(status);
     //tick_tock_spreadsheet();
   });
 
@@ -65,5 +71,5 @@ function load_spreadsheet_info(){
         }
       }
     });  
-    setTimeout(update_spreadsheet_function, 2000); //check data is logged to spreadsheet
+    //setTimeout(update_spreadsheet_function, 2000); //check data is logged to spreadsheet
 }
