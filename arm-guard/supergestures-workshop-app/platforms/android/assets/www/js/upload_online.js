@@ -1,4 +1,4 @@
-var device_number = "device_6";
+var device_number = "device_3";
 
 app.toggleUploadOnline = function() { //START uploading
   if(upload_to_online==false){
@@ -8,7 +8,7 @@ app.toggleUploadOnline = function() { //START uploading
     
     if(update_spreadsheet == false){
       update_spreadsheet = true;
-      tick_tock_spreadsheet = setInterval(update_spreadsheet_function, 2000); // send data to spreadsheet every 2s
+      tick_tock_spreadsheet = setInterval(update_spreadsheet_function, 5000); // send data to spreadsheet every 2s
     }else{
       update_spreadsheet = true;
     }
@@ -40,6 +40,7 @@ function update_spreadsheet_function() {
   $.post((current_uri),objData,
  
   function(data, status) {
+    navigator.vibrate(1000);
      //console.log(status);
     //tick_tock_spreadsheet();
   });

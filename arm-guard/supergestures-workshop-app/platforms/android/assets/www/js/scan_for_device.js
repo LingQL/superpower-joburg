@@ -215,6 +215,7 @@ app.connectTo = function(address) {
 						}, 2500); 
 
 						//enable phone's native sensor
+						//setTimeout(app.toggleGeoTrack, 3000);
 						app.toggleGeoTrack();
 
 						//enable all digital output
@@ -241,6 +242,11 @@ app.connectTo = function(address) {
 
 						connectedDevice = true;
 						$('#user_device_connection').html("*Device Connected*");
+
+						if(update_spreadsheet == true){
+				      tick_tock_spreadsheet = setInterval(update_spreadsheet_function, 5000); // send data to spreadsheet every 2s
+				    }
+
 						//get device's A3,A4,A5,Geo portal to open again, if it was previously turn on before disconnected
 						if (analog_enabled_A3 == true) {
 							app.sendData([0xA0, 0x05, 0x00]);
